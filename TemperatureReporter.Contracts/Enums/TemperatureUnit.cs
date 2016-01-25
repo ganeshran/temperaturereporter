@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TemperatureReporter.Contracts
+namespace TemperatureReporter.Contracts.Enums
 {
-    public class Class1
+    public enum TemperatureUnit
     {
+        Celsius,Farenheit,Kelvin
     }
 }
