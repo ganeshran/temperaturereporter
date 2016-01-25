@@ -11,7 +11,11 @@ namespace TemperatureReporter.Exceptions
     /// for all our custom exceptions. Any common logic would be pulled
     /// into this layer
     /// </summary>
-    class BaseF1Exception: Exception
+    public class BaseF1Exception: Exception
     {
+        public BaseF1Exception(string message) : base(message)
+        {
+            
+        }
     }
 }

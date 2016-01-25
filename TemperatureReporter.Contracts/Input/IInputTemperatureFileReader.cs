@@ -11,6 +11,6 @@ namespace TemperatureReporter.Contracts.Input
     /// </summary>
     public interface IInputTemperatureFileReader
     {
-        IEnumerable<ITyreTemperature> TyreTemperatures { get; set; }
+        IEnumerable<ITyreTemperature> ReadTyreTemperatures(string filePath);
     }
 }

@@ -39,7 +39,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Input\InputTemperatureFileReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TemperatureReporter.Contracts\TemperatureReporter.Contracts.csproj">
+      <Project>{a2e4b6a0-5bcf-40d7-bc07-1377fcf4f207}</Project>
+      <Name>TemperatureReporter.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TemperatureReporter.Exceptions\TemperatureReporter.Exceptions.csproj">
+      <Project>{2e387dfd-fbec-4684-b8fe-4b17dee70769}</Project>
+      <Name>TemperatureReporter.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TemperatureReporter.Model\TemperatureReporter.Model.csproj">
+      <Project>{32137043-7a64-4f1e-ad58-eaf13a409053}</Project>
+      <Name>TemperatureReporter.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
