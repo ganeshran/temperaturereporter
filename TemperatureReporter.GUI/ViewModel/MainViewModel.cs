@@ -1,4 +1,8 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 using TemperatureReporter.GUI.Model;
 
 namespace TemperatureReporter.GUI.ViewModel
@@ -12,7 +16,9 @@ namespace TemperatureReporter.GUI.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private readonly IDataService _dataService;
+        public ICommand ReadLogFile { get; private set; }
 
+        private string _inputFilePath { get; set; }
         /// <summary>
         /// The <see cref="WelcomeTitle" /> property's name.
         /// </summary>
@@ -36,23 +42,28 @@ namespace TemperatureReporter.GUI.ViewModel
             }
         }
 
+        public String InputFilePath 
+        {
+            get { return _inputFilePath; }
+            set
+            {
+                if (_inputFilePath == value) return;
+                InputFilePath = value;
+                RaisePropertyChanged("InputFilePath");
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(IDataService dataService)
+        public MainViewModel()
         {
-            _dataService = dataService;
-            _dataService.GetData(
-                (item, error) =>
-                {
-                    if (error != null)
-                    {
-                        // Report error here
-                        return;
-                    }
+          this.ReadLogFile = new RelayCommand(this.ReadLogFileAction); 
+        }
 
-                    WelcomeTitle = item.Title;
-                });
+        public void ReadLogFileAction()
+        {
+            MessageBox.Show(InputFilePath);
         }
 
         ////public override void Cleanup()
