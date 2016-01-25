@@ -7,24 +7,30 @@ using System.Threading.Tasks;
 using TemperatureReporter.Contracts.Input;
 using TemperatureReporter.Contracts.Vehicular;
 using TemperatureReporter.Exceptions.Input;
+using TemperatureReporter.Model.Vehicular;
 
 namespace TemperatureReporter.Implementation.Input
 {
-    public class InputTemperatureFileReader: IInputTemperatureFileReader 
+    public class InputTemperatureFileReader : IInputTemperatureFileReader
     {
-        public IEnumerable<ITyreTemperature> ReadTyreTemperatures(string filePath)
+        public IEnumerable<Tuple<ITyreTemperature, ITyreTemperature>> ReadTyreTemperatures(string filePath)
         {
-            if(!File.Exists(filePath))
+            if (!File.Exists(filePath))
                 throw new InputFileNotFoundException(filePath);
 
+            var allTemperatures = new List<Tuple<ITyreTemperature, ITyreTemperature>>();
             foreach (var line in File.ReadAllLines(filePath))
             {
-                
+                if (IsLineValid(line))
+                {
+                    var lineValues = line.Split(' ');
+                    allTemperatures.Add(new Tuple<ITyreTemperature, ITyreTemperature>(new TyreTemperature(Convert.ToDouble(lineValues[0])),new TyreTemperature(Convert.ToDouble(lineValues[1])) ));
+                }
             }
-            return null;
+            return allTemperatures;
         }
 
-        bool IsLineValid(string line)
+        private bool IsLineValid(string line)
         {
             if (String.IsNullOrWhiteSpace(line) && !line.Contains(" "))
                 return false;
@@ -35,3 +41,4 @@ namespace TemperatureReporter.Implementation.Input
         }
     }
 }
+    

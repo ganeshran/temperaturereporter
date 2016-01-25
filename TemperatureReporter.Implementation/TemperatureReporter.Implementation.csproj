@@ -41,6 +41,9 @@
   <ItemGroup>
     <Compile Include="Input\InputTemperatureFileReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporting\Calculators\AmbientTemperatureCalculator.cs" />
+    <Compile Include="Reporting\Calculators\AverageTemperatureCalculator.cs" />
+    <Compile Include="Reporting\Calculators\MaxTyreTemperature.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TemperatureReporter.Contracts\TemperatureReporter.Contracts.csproj">

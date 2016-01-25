@@ -40,6 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vehicular\TyreTemperature.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TemperatureReporter.Contracts\TemperatureReporter.Contracts.csproj">
+      <Project>{a2e4b6a0-5bcf-40d7-bc07-1377fcf4f207}</Project>
+      <Name>TemperatureReporter.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

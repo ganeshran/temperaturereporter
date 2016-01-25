@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 using TemperatureReporter.Contracts.Vehicular;
 
@@ -11,6 +12,6 @@ namespace TemperatureReporter.Contracts.Input
     /// </summary>
     public interface IInputTemperatureFileReader
     {
-        IEnumerable<ITyreTemperature> ReadTyreTemperatures(string filePath);
+        IEnumerable<Tuple<ITyreTemperature,ITyreTemperature>> ReadTyreTemperatures(string filePath);
     }
 }
