@@ -15,9 +15,11 @@ namespace TemperatureReporter.Implementation.Reporting.Calculators
             this.MetricName = "Ambient Temperature Calculator";
         }
         public string MetricName { get; set; }
-        public Tuple<double,double> CalculateValue(IEnumerable<ITyreTemperature> tyreTemperatures)
+        public Tuple<double,double> CalculateValue(IEnumerable<Tuple<ITyreTemperature,ITyreTemperature>> tyreTemperatures)
         {
-            throw new NotImplementedException();
+            var leftTyreTemperatures = tyreTemperatures.Select(x => x.Item1.Value);
+            var rightTyreTemperatures = tyreTemperatures.Select(x => x.Item2.Value);
+            return new Tuple<double, double>(leftTyreTemperatures.Average(),rightTyreTemperatures.Average());
         }
     }
 }

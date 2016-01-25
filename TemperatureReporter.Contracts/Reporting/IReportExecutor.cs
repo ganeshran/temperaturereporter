@@ -11,7 +11,7 @@ namespace TemperatureReporter.Contracts.Reporting
     public interface IReportExecutor
     {
         string ReportName { get; set; }
-        IEnumerable<KeyValuePair<string,double>> MetricValues { get; set; }
+        IEnumerable<KeyValuePair<string,string>> MetricValues { get; set; }
         void ExecuteReport();
 
     }

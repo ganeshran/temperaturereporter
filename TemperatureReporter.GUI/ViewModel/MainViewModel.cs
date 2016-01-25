@@ -8,6 +8,7 @@ using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using TemperatureReporter.Contracts.Factory;
 using TemperatureReporter.Contracts.Input;
+using TemperatureReporter.Contracts.Reporting;
 using TemperatureReporter.Exceptions.Input;
 using TemperatureReporter.GUI.Model;
 
@@ -73,6 +74,7 @@ namespace TemperatureReporter.GUI.ViewModel
             {
                 var fileReader = ServiceLocator.Current.GetInstance<IInputTemperatureFileReader>();
                 var inputLogs = fileReader.ReadTyreTemperatures(InputFilePath);
+                var executor = ServiceLocator.Current.GetInstance<IReportExecutor>();
 
             }
             catch (InputFileNotFoundException)

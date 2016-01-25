@@ -12,7 +12,7 @@ namespace TemperatureReporter.Implementation.Reporting
     public class TemperatureReportExecutor: IReportExecutor
     {
         public string ReportName { get; set; }
-        public IEnumerable<KeyValuePair<string, double>> MetricValues { get; set; }
+        public IEnumerable<KeyValuePair<string, string>> MetricValues { get; set; }
         private IEnumerable<IReportingMetricCalculator> Calculators { get; set; } 
         public void ExecuteReport()
         {
