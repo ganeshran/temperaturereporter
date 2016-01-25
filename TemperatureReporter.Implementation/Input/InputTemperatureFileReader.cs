@@ -17,7 +17,21 @@ namespace TemperatureReporter.Implementation.Input
             if(!File.Exists(filePath))
                 throw new InputFileNotFoundException(filePath);
 
+            foreach (var line in File.ReadAllLines(filePath))
+            {
+                
+            }
             return null;
+        }
+
+        bool IsLineValid(string line)
+        {
+            if (String.IsNullOrWhiteSpace(line) && !line.Contains(" "))
+                return false;
+
+            var inputValues = line.Split(' ');
+
+            return inputValues.Length == 2;
         }
     }
 }
