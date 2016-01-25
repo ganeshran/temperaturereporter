@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperatureReporter.Excepti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperatureReporter.Tests", "TemperatureReporter.Tests\TemperatureReporter.Tests.csproj", "{6F6932B8-7339-4833-A350-208408B2CBAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperatureReporter.GUI", "TemperatureReporter.GUI\TemperatureReporter.GUI.csproj", "{D1DEE0FB-A738-455B-ABA6-A2EE17FDDAF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{6F6932B8-7339-4833-A350-208408B2CBAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F6932B8-7339-4833-A350-208408B2CBAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F6932B8-7339-4833-A350-208408B2CBAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1DEE0FB-A738-455B-ABA6-A2EE17FDDAF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1DEE0FB-A738-455B-ABA6-A2EE17FDDAF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1DEE0FB-A738-455B-ABA6-A2EE17FDDAF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1DEE0FB-A738-455B-ABA6-A2EE17FDDAF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
