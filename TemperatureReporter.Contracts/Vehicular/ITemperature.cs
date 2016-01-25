@@ -12,7 +12,7 @@ namespace TemperatureReporter.Contracts.Vehicular
     /// This interfaces stores the temperature of a particular tyre. All Conversion Logic should
     /// be buried inside this
     /// </summary>
-    public interface ITemperature
+    public interface ITyreTemperature
     {
         double Value { get; set; }
 

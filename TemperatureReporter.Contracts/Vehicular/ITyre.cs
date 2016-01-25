@@ -7,6 +7,6 @@
     /// </summary>
     public interface ITyre
     {
-        ITemperature TyreTemperature { get; set; }
+        ITyreTemperature TyreTyreTemperature { get; set; }
     }
 }
