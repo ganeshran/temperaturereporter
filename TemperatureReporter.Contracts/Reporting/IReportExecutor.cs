@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using TemperatureReporter.Contracts.Vehicular;
 
 namespace TemperatureReporter.Contracts.Reporting
 {
@@ -11,8 +13,6 @@ namespace TemperatureReporter.Contracts.Reporting
     public interface IReportExecutor
     {
         string ReportName { get; set; }
-        IEnumerable<KeyValuePair<string,string>> MetricValues { get; set; }
-        void ExecuteReport();
-
+        IEnumerable<KeyValuePair<string,string>> ExecuteReport(IEnumerable<Tuple<ITyreTemperature, ITyreTemperature>> tyreTemperatures);
     }
 }

@@ -75,6 +75,7 @@ namespace TemperatureReporter.GUI.ViewModel
                 var fileReader = ServiceLocator.Current.GetInstance<IInputTemperatureFileReader>();
                 var inputLogs = fileReader.ReadTyreTemperatures(InputFilePath);
                 var executor = ServiceLocator.Current.GetInstance<IReportExecutor>();
+                var metricValues = executor.ExecuteReport(inputLogs);
 
             }
             catch (InputFileNotFoundException)

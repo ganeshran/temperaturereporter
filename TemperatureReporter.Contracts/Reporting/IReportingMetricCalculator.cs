@@ -17,6 +17,6 @@ namespace TemperatureReporter.Contracts.Reporting
     {
         string MetricName { get; set; }
 
-        Tuple<double,double> CalculateValue(IEnumerable<ITyreTemperature> tyreTemperatures);
+        Tuple<double,double> CalculateValue(IEnumerable<Tuple<ITyreTemperature,ITyreTemperature>> tyreTemperatures);
     }
 }
