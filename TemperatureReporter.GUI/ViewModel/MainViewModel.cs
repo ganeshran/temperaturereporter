@@ -48,7 +48,7 @@ namespace TemperatureReporter.GUI.ViewModel
             set
             {
                 if (_inputFilePath == value) return;
-                InputFilePath = value;
+                _inputFilePath = value;
                 RaisePropertyChanged("InputFilePath");
             }
         }
