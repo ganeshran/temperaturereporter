@@ -17,13 +17,18 @@ namespace TemperatureReporter.Implementation.Input
         {
             if (!File.Exists(filePath))
                 throw new InputFileNotFoundException(filePath);
-
+            bool firstLine = true;
             var allTemperatures = new List<Tuple<ITyreTemperature, ITyreTemperature>>();
             foreach (var line in File.ReadAllLines(filePath))
             {
+                if (firstLine)
+                {
+                    firstLine = false;
+                    continue;
+                }
                 if (IsLineValid(line))
                 {
-                    var lineValues = line.Split(' ');
+                    var lineValues = line.Split('\t');
                     allTemperatures.Add(new Tuple<ITyreTemperature, ITyreTemperature>(new TyreTemperature(Convert.ToDouble(lineValues[0])),new TyreTemperature(Convert.ToDouble(lineValues[1])) ));
                 }
             }
@@ -32,10 +37,10 @@ namespace TemperatureReporter.Implementation.Input
 
         private bool IsLineValid(string line)
         {
-            if (String.IsNullOrWhiteSpace(line) && !line.Contains(" "))
+            if (String.IsNullOrWhiteSpace(line) && !line.Contains("\t"))
                 return false;
 
-            var inputValues = line.Split(' ');
+            var inputValues = line.Split('\t');
 
             return inputValues.Length == 2;
         }

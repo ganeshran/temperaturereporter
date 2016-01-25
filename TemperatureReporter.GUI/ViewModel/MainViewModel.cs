@@ -1,8 +1,14 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Ioc;
+using Microsoft.Practices.ServiceLocation;
+using TemperatureReporter.Contracts.Factory;
+using TemperatureReporter.Contracts.Input;
+using TemperatureReporter.Exceptions.Input;
 using TemperatureReporter.GUI.Model;
 
 namespace TemperatureReporter.GUI.ViewModel
@@ -63,7 +69,16 @@ namespace TemperatureReporter.GUI.ViewModel
 
         public void ReadLogFileAction()
         {
-            MessageBox.Show(InputFilePath);
+            try
+            {
+                var fileReader = ServiceLocator.Current.GetInstance<IInputTemperatureFileReader>();
+                var inputLogs = fileReader.ReadTyreTemperatures(InputFilePath);
+
+            }
+            catch (InputFileNotFoundException)
+            {
+                MessageBox.Show("The temperature file has not been found");
+            }
         }
 
         ////public override void Cleanup()

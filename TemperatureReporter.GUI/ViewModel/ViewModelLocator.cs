@@ -12,7 +12,12 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using TemperatureReporter.Contracts.Factory;
+using TemperatureReporter.Contracts.Input;
+using TemperatureReporter.Contracts.Reporting;
 using TemperatureReporter.GUI.Model;
+using TemperatureReporter.Implementation.Input;
+using TemperatureReporter.Implementation.Reporting;
 
 namespace TemperatureReporter.GUI.ViewModel
 {
@@ -39,6 +44,9 @@ namespace TemperatureReporter.GUI.ViewModel
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<IInputTemperatureFileReader, InputTemperatureFileReader>();
+            SimpleIoc.Default.Register<IReportCalculatorFactory,IReportCalculatorFactory>();
+            SimpleIoc.Default.Register<IReportExecutor,TemperatureReportExecutor>();
         }
 
         /// <summary>

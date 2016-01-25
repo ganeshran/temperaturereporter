@@ -10,8 +10,12 @@ namespace TemperatureReporter.Implementation.Reporting.Calculators
 {
     public class AmbientTemperatureCalculator: IReportingMetricCalculator
     {
+        public AmbientTemperatureCalculator()
+        {
+            this.MetricName = "Ambient Temperature Calculator";
+        }
         public string MetricName { get; set; }
-        public double CalculateValue(IEnumerable<ITyreTemperature> tyreTemperatures)
+        public Tuple<double,double> CalculateValue(IEnumerable<ITyreTemperature> tyreTemperatures)
         {
             throw new NotImplementedException();
         }

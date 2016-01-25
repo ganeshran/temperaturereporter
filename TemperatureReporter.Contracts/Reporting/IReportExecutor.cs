@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TemperatureReporter.Contracts.Reporting
 {
@@ -10,6 +11,8 @@ namespace TemperatureReporter.Contracts.Reporting
     public interface IReportExecutor
     {
         string ReportName { get; set; }
-        IEnumerable<IReportingMetricCalculator> Calculators { get; set; } 
+        IEnumerable<KeyValuePair<string,double>> MetricValues { get; set; }
+        void ExecuteReport();
+
     }
 }

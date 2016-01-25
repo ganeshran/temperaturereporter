@@ -11,7 +11,12 @@ namespace TemperatureReporter.Implementation.Reporting.Calculators
     public class AverageTemperatureCalculator: IReportingMetricCalculator
     {
         public string MetricName { get; set; }
-        public double CalculateValue(IEnumerable<ITyreTemperature> tyreTemperatures)
+
+        public AverageTemperatureCalculator()
+        {
+            this.MetricName = "Average Temperature";
+        }
+        public Tuple<double,double> CalculateValue(IEnumerable<ITyreTemperature> tyreTemperatures)
         {
             throw new NotImplementedException();
         }

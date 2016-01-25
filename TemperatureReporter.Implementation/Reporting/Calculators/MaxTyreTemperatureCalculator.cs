@@ -11,8 +11,12 @@ namespace TemperatureReporter.Implementation.Reporting.Calculators
     public class MaxTyreTemperatureCalculator:
          IReportingMetricCalculator
     {
+        public MaxTyreTemperatureCalculator()
+        {
+            this.MetricName = "Max Tyre Temperature";
+        }
         public string MetricName { get; set; }
-        public double CalculateValue(IEnumerable<ITyreTemperature> tyreTemperatures)
+        public Tuple<double,double> CalculateValue(IEnumerable<ITyreTemperature> tyreTemperatures)
         {
             throw new NotImplementedException();
         }
