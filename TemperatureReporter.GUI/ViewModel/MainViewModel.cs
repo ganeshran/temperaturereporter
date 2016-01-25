@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
@@ -26,6 +27,9 @@ namespace TemperatureReporter.GUI.ViewModel
         public ICommand ReadLogFile { get; private set; }
 
         private string _inputFilePath { get; set; }
+        private string _avgTemperature { get; set; }
+        private string _ambientTemperature { get; set; }
+        private string _maxTemperature { get; set; }
         /// <summary>
         /// The <see cref="WelcomeTitle" /> property's name.
         /// </summary>
@@ -60,6 +64,39 @@ namespace TemperatureReporter.GUI.ViewModel
             }
         }
 
+        public string AverageTemperature
+        {
+            get { return _avgTemperature; }
+            set
+            {
+                if (_avgTemperature == value) return;
+                _avgTemperature = value;
+                RaisePropertyChanged("AverageTemperature");
+            }
+        }
+
+        public string AmbientTemperature
+        {
+            get { return _ambientTemperature; }
+            set
+            {
+                if (_ambientTemperature == value) return;
+                _ambientTemperature = value;
+                RaisePropertyChanged("AmbientTemperature");
+            }
+        }
+
+        public string MaxTemperature
+        {
+            get { return _maxTemperature; }
+            set
+            {
+                if (_maxTemperature== value) return;
+                _maxTemperature = value;
+                RaisePropertyChanged("MaxTemperature");
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -76,6 +113,9 @@ namespace TemperatureReporter.GUI.ViewModel
                 var inputLogs = fileReader.ReadTyreTemperatures(InputFilePath);
                 var executor = ServiceLocator.Current.GetInstance<IReportExecutor>();
                 var metricValues = executor.ExecuteReport(inputLogs);
+                this.AverageTemperature = metricValues.First(x => x.Key == "Average Temperature").Value;
+                this.AmbientTemperature = metricValues.First(x => x.Key == "Ambient Temperature").Value;
+                this.MaxTemperature = metricValues.First(x => x.Key == "Max Temperature").Value;
 
             }
             catch (InputFileNotFoundException)

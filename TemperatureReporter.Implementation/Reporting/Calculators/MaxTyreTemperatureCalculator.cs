@@ -13,7 +13,7 @@ namespace TemperatureReporter.Implementation.Reporting.Calculators
     {
         public MaxTyreTemperatureCalculator()
         {
-            this.MetricName = "Max Tyre Temperature";
+            this.MetricName = "Max Temperature";
         }
         public string MetricName { get; set; }
         public Tuple<double,double> CalculateValue(IEnumerable<Tuple<ITyreTemperature,ITyreTemperature>> tyreTemperatures)

@@ -12,14 +12,14 @@ namespace TemperatureReporter.Implementation.Reporting.Calculators
     {
         public AmbientTemperatureCalculator()
         {
-            this.MetricName = "Ambient Temperature Calculator";
+            this.MetricName = "Ambient Temperature";
         }
         public string MetricName { get; set; }
         public Tuple<double,double> CalculateValue(IEnumerable<Tuple<ITyreTemperature,ITyreTemperature>> tyreTemperatures)
         {
             var leftTyreTemperatures = tyreTemperatures.Select(x => x.Item1.Value);
             var rightTyreTemperatures = tyreTemperatures.Select(x => x.Item2.Value);
-            return new Tuple<double, double>(leftTyreTemperatures.Average(),rightTyreTemperatures.Average());
+            return new Tuple<double, double>(Math.Round(leftTyreTemperatures.Average(),2),Math.Round(rightTyreTemperatures.Average(),2));
         }
     }
 }

@@ -20,7 +20,7 @@ namespace TemperatureReporter.Implementation.Reporting.Calculators
         {
             var leftTyreTemperatures = tyreTemperatures.Select(x => x.Item1.Value);
             var rightTyreTemperatures = tyreTemperatures.Select(x => x.Item2.Value);
-            return new Tuple<double, double>(leftTyreTemperatures.Average(),rightTyreTemperatures.Average());
+            return new Tuple<double, double>(Math.Round(leftTyreTemperatures.Average(),2),Math.Round(rightTyreTemperatures.Average(),2));
         }
     }
 }

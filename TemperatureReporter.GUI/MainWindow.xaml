@@ -33,6 +33,23 @@
                         Content="Execute Report"></Button>
 
                 </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0">Average Temperature</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding AverageTemperature}"></TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="0">Ambient Temperature</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding AmbientTemperature}"></TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0">Max Temperature</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MaxTemperature}"></TextBlock>
+                </Grid>
         </StackPanel>
         </Border>
     </Grid>
